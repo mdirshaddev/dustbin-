@@ -10,4 +10,6 @@ app.get('/',(req,res)=>{
   res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'));
 })
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, ()=>{
+  console.log('Server running at the port.');
+});
