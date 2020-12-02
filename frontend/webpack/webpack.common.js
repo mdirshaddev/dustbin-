@@ -104,6 +104,15 @@ module.exports = {
             maxAgeSeconds: 300,
           }
         }
+      },{
+        urlPattern: /\.(?:html|html)$/,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'index',
+          expiration: {
+            maxAgeSeconds: 300
+          }
+        }
       }],
     })
   ],
