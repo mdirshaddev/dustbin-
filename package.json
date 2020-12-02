@@ -4,7 +4,7 @@
   "description": "an ecommerce website",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js && cd frontend && npm run build"
   },
   "author": "Md Irshad",
   "license": "MIT",
