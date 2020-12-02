@@ -1,0 +1,14 @@
+//applying this to every element
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; //to properly fix padding and margin with an element like a box constraint
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
