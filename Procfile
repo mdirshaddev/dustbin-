@@ -1,1 +1,0 @@
-django: gunicorn core.wsgi
