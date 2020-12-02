@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 require('dotenv').config();
-
-app.use(express.static('frontend/build'))
-console.log('frontend/build');
+app.use(express.static(path.resolve(__dirname, 'frontend/build')))
+console.log(path.resolve(__dirname, 'frontend/build'));
 
 app.get('*',(req,res)=>{
-  res.sendFile('frontend/build/index.html');
+  res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'));
 })
 
 app.listen(process.env.PORT);
