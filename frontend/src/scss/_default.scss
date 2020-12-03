@@ -5,6 +5,10 @@
   box-sizing: border-box; //to properly fix padding and margin with an element like a box constraint
 }
 
+body{
+  background-image: linear-gradient(red, yellow,0.254turn);
+}
+
 a{
   text-decoration: none;
 }

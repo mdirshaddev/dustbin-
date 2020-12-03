@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 //base react component
 import Base from './Base';
 
-
 //stylesheet import
 import './scss/main.scss';
 
