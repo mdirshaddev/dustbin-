@@ -6,7 +6,7 @@ require('dotenv').config();
 app.use(express.static(path.resolve(__dirname, 'frontend/build')))
 console.log(path.resolve(__dirname, 'frontend/build'));
 
-app.get('/',(req,res)=>{
+app.get('/test',(req,res)=>{
   res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'));
 })
 
