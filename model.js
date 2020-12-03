@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
-const UserModel = new Schema({
+const UserModel = new mongoose.Schema({
   username: String,
   password: String,
   email: String
 },{
-  timestamps: true,
+  timestamps: false,
 });
 
 const User = mongoose.model('User',UserModel);

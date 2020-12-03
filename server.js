@@ -6,6 +6,12 @@ const mongoose = require('mongoose');
 
 const router = require('./route');
 
+const morgan = require('morgan');
+app.use(morgan('combined'))
+
+app.use(express.json())
+
+app.use(express.urlencoded({ extended: true }))
 require('dotenv').config();
 app.use(express.static(path.resolve(__dirname, 'frontend/build')))
 console.log(path.resolve(__dirname, 'frontend/build'));
@@ -13,6 +19,8 @@ console.log(path.resolve(__dirname, 'frontend/build'));
 mongoose.connect(process.env.MONGODB_URI,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
+  connectTimeoutMS: 50000
 },()=>{
   console.log('MongoDB is connected successfully')
 })
@@ -28,8 +36,8 @@ app.get('/welcome',(req,res)=>{
   })
 })
 
-app.use(router);
+app.use('/api',router);
 
 app.listen(process.env.PORT, ()=>{
-  console.log('Server running at the port.');
+  console.log(`Server running at the port ${process.env.PORT}`);
 });
