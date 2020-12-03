@@ -16,7 +16,10 @@ function AddUser(req,res){
     password: req.body.password
   })
   data.save()
-    .then(res=>console.log(res))
+    .then(res=>{
+      console.log(res)
+      return res.json(res);
+    })
     .catch(err=>console.log(err));
 }
 
