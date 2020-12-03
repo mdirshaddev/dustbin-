@@ -10,6 +10,13 @@ app.get('/test',(req,res)=>{
   res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'));
 })
 
+app.get('/welcome',(req,res)=>{
+  console.log('Express is working fine.');
+  res.send({
+    message: "Welcome to the world of web developer"
+  })
+})
+
 app.listen(process.env.PORT, ()=>{
   console.log('Server running at the port.');
 });
