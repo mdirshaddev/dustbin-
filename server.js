@@ -28,7 +28,7 @@ app.get('/welcome',(req,res)=>{
   })
 })
 
-app.use('/api', router);
+app.use(router);
 
 app.listen(process.env.PORT, ()=>{
   console.log('Server running at the port.');
