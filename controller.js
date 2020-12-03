@@ -16,11 +16,8 @@ function AddUser(req,res){
     password: req.body.password
   })
   data.save()
-    .then(res=>{
-      console.log(res)
-      return res.json(res);
-    })
-    .catch(err=>console.log(err));
+    .then(() => res.json('Users added'))
+    .catch(err => res.status(400).json('Error '+err));
 }
 
 module.exports = {
