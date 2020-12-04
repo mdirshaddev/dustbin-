@@ -4,7 +4,9 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/index.jsx'),
+  entry: {
+    index: path.resolve(__dirname, '../src/index.jsx'),
+  },
   module: {
     rules: [
       {

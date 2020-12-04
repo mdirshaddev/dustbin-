@@ -6,7 +6,7 @@ const Dotenv = require('dotenv-webpack');
 module.exports = {
   mode: 'development',
   output: {
-    filename: 'static/js/[name].[fullhash:8].js',
+    filename: 'static/js/[name].bundle.js'
   },
   module: {
     rules: [

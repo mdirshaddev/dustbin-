@@ -10,7 +10,7 @@ module.exports = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, '../build'),
-    filename: 'static/js/[name].[fullhash:8].js',
+    filename: 'static/js/[name].[fullhash:8].chunk.js',
   },
   module: {
     rules: [
@@ -22,7 +22,7 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              sourceMap: true,
+              sourceMap: false,
             },
           }
         ]
@@ -30,6 +30,16 @@ module.exports = {
     ]
   },
   optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
@@ -56,5 +66,5 @@ module.exports = {
       filename: "static/css/[name].css",
     })
   ],
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
 };
