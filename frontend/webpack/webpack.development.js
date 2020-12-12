@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -18,7 +17,7 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              sourceMap: false,
+              sourceMap: true,
             }
           }
         ]
@@ -26,10 +25,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new Dotenv({
-      path: path.resolve(__dirname, '..', './.env.development'),
-    }),
+    // new webpack.HotModuleReplacementPlugin(),
+    // new Dotenv({
+    //   path: path.resolve(__dirname, '..', './.env.development'),
+    // }),
     new HtmlWebpackPlugin({
       title: 'IrshadTMDb | Movies',
       filename: 'index.html',
@@ -37,10 +36,11 @@ module.exports = {
       favicon: path.resolve(__dirname, '../public/icons/favicon.ico')
     }),
   ],
-  devtool: 'eval-source-map',
+  devtool: 'eval',
   devServer: {
     contentBase: path.resolve(__dirname, '../build'),
     historyApiFallback: true,
-    port: 5001
+    port: 5001,
+    hot: true
   },
 };

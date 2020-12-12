@@ -1,15 +1,14 @@
-const path = require('path');
+const Path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '../build'),
+    path: Path.resolve(__dirname, '../build'),
     filename: 'static/js/[name].[fullhash:8].chunk.js',
   },
   module: {
@@ -35,7 +34,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
+          name: '2',
           chunks: 'all',
         },
       },
@@ -47,8 +46,8 @@ module.exports = {
       new HtmlWebpackPlugin({
         title: 'IrshadTMDb | Movies',
         filename: 'index.html',
-        template: path.resolve(__dirname, '../public/index.html'),
-        favicon: path.resolve(__dirname, '../public/icons/favicon.ico'),
+        template: Path.resolve(__dirname, '../public/index.html'),
+        favicon: Path.resolve(__dirname, '../public/icons/favicon.ico'),
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,
@@ -58,13 +57,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new Dotenv({
-      path: path.resolve(__dirname, '..', './.env.production'),
-    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "static/css/[name].css",
     })
   ],
-  devtool: 'inline-source-map',
 };

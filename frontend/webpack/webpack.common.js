@@ -61,7 +61,7 @@ module.exports = {
       icons: [
         {
           src: path.resolve(__dirname, '../src/assets/images/logo.jpg'),
-          sizes: [96, 128, 192, 256, 384, 512, 1024],
+          sizes: [96, 128, 192, 256, 384, 512],
           destination: path.join('static/icons')
         }
       ]
@@ -94,7 +94,7 @@ module.exports = {
         options: {
           cacheName: 'scripts',
           expiration: {
-            maxAgeSeconds: 300,
+            maxAgeSeconds: 10,
           }
         }
       },{

@@ -5,7 +5,7 @@ import BaseRouter from './router';
 class Base extends Component{
   render(){
     return(
-      <div>
+      <div className="test">
         <Layout/>
         <BaseRouter />
       </div>
